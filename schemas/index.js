@@ -3,7 +3,11 @@ const mongoose = require("mongoose");
 
 const connect = () => {
   mongoose
-    .connect("mongodb://127.0.0.1:27017/gesipan_db")
+    .connect("mongodb://127.0.0.1:27017/gesipan_db", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then((value) => console.log("MongoDB 연결에 성공하였습니다."))
     .catch((err) => console.log(err));
 };
 
